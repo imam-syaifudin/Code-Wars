@@ -1,0 +1,1 @@
+const number = (arr) => arr.map((val,index) => `${index+1}: ${val}`) 
