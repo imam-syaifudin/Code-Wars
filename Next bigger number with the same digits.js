@@ -10,16 +10,18 @@ function nextBigger(n) {
       result += rand;
       split.splice(split.indexOf(rand), 1);
     }
+    split = n.toString().split("");
     return parseInt(result);
   }
 
   let check = doLoop();
-  while( check < n ){
+  for( let i = 0; i < 3; i-- ){
     check = doLoop();
-  };
+    if( check > n ) break;
+  }
 
   return check;
 
 }
 
-console.log(nextBigger(12));
+console.log(nextBigger(2017));
