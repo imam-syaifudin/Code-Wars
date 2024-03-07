@@ -1,4 +1,4 @@
-const string = 'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta';
-const coba = Array.from(new Set(string.split(" "))).join(" ");
+const arr = 'AAAABBBCCDAABBB';
+const test = new Set(arr.split(" "));
 
-console.log(coba);
+console.log(test);
