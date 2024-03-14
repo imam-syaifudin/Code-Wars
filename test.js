@@ -1,4 +1,10 @@
-const arr = 'AAAABBBCCDAABBB';
-const test = new Set(arr.split(" "));
+const form = {
+    nama: "Muhammad Imam",
+    absen: 14
+};
 
-console.log(test);
+const formData = new FormData;
+formData.append('nama', 'Muhammad Imam');
+formData.append('absen', 14);
+
+console.log(formData);
