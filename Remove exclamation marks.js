@@ -1,0 +1,1 @@
+const removeExclamationMarks = s => s.split("").filter(val => val !== "!").join("")

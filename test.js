@@ -1,10 +1,4 @@
-const form = {
-    nama: "Muhammad Imam",
-    absen: 14
-};
+const nama = "Muhammad imam syaifudin";
+const getInitial = name => name.split(" ").map(val => val[0].toUpperCase()).join("");
 
-const formData = new FormData;
-formData.append('nama', 'Muhammad Imam');
-formData.append('absen', 14);
-
-console.log(formData);
+console.log(getInitial("Mochammad"));
