@@ -1,4 +1,16 @@
-const nama = "Muhammad imam syaifudin";
-const getInitial = name => name.split(" ").map(val => val[0].toUpperCase()).join("");
+const country =  [
+    { "name": "Afghanistan", "code": "AF" },
+    { "name": "Åland Islands", "code": "AX" },
+    { "name": "Albania", "code": "AL" },
+    { "name": "Algeria", "code": "DZ" },
+];
 
-console.log(getInitial("Mochammad"));
+const mapping = country.map(val => { 
+    return {
+        name: val.name,
+        code: val.code,
+        value: `${val.code} - ${val.name}`
+    }
+})
+
+console.log(mapping);
