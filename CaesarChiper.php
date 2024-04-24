@@ -1,5 +1,7 @@
 <?php
 
+// Muhammad Imam
+// Codewars : https://www.codewars.com/kata/526d42b6526963598d0004db/php
 trait Helper
 {
     private array $listWords;
@@ -8,7 +10,7 @@ trait Helper
     {
         $this->listWords = $words;
     }
-    
+
     public function toString(array $array): string
     {
         return implode("", $array);
