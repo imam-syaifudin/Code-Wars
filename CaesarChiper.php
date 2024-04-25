@@ -28,9 +28,9 @@ class CaesarCipher
 
     use Helper;
 
-    private int   $chipper;
-    private array $chipperListWords;
-    private int   $calculate;
+    protected int   $chipper;
+    protected array $chipperListWords;
+    protected int   $calculate;
 
     public function __construct(int $chipper)
     {
@@ -38,27 +38,27 @@ class CaesarCipher
         $this->setListWords(str_split("abcdefghijklmnopqrstuvwxyz"));
     }
 
-    private function setChipperListWords(array $chipperListWords): void
+    protected function setChipperListWords(array $chipperListWords): void
     {
         $this->chipperListWords = $chipperListWords;
     }
 
-    private function setCalculate(int $calculate): void
+    protected function setCalculate(int $calculate): void
     {
         $this->calculate = $calculate;
     }
 
-    private function getNext(): string
+    protected function getNext(): string
     {
         return $this->calculate > 25 ? $this->listWords[$this->calculate - 26] : $this->listWords[$this->calculate];
     }
 
-    private function getBefore(): string
+    protected function getBefore(): string
     {
         return $this->calculate < 0 ? $this->listWords[$this->calculate + 26] : $this->listWords[$this->calculate];
     }
 
-    private function getWord(string $step = 'next'): string
+    protected function getWord(string $step = 'next'): string
     {
         $result = [];
         foreach ($this->chipperListWords as $word) {
@@ -85,6 +85,4 @@ class CaesarCipher
     }
 }
 
-$chipper = new CaesarCipher(5);
-var_dump($chipper->encode('Code wars')); // HTIJBFWX
-var_dump($chipper->decode('Htij bfwx')); // CODEWARS
+
