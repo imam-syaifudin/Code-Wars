@@ -62,18 +62,15 @@ class VigenèreCipher
         return $this->calculate < 0 ? $this->listWords[$this->calculate + 26] : $this->listWords[$this->calculate];
     }
 
-    private function getWord(string $step = 'next'): string
+    private function generateChipper(string $step = 'next'): string
     {
         $result = [];
         foreach ($this->chipperListWords as $index => $word) {
 
-            $wordIndex = array_search($word, $this->listWords); 
-            $getKeys   = 0;
-            
-            if (isset($this->key[$index])) $getKeys = array_search($this->key[$index], $this->listWords);
-            else $getKeys = array_search($this->key[$index % count($this->key)], $this->listWords);
+            $wordIndex    = array_search($word, $this->listWords);
+            $getKey       = isset($this->key[$index]) ? $this->key[$index] : $this->key[$index % count($this->key)];
 
-            $this->setChipper($getKeys);
+            $this->setChipper(array_search($getKey, $this->listWords));
             $this->setCalculate($step === 'next' ? $wordIndex + $this->chipper : $wordIndex - $this->chipper);
 
             $data = match (true) {
@@ -90,13 +87,13 @@ class VigenèreCipher
     public function encode(string $word): string
     {
         $this->setChipperListWords(str_split($word));
-        return $this->getWord('next');
+        return $this->generateChipper('next');
     }
 
     public function decode(string $word): string
     {
         $this->setChipperListWords(str_split($word));
-        return $this->getWord('previous');
+        return $this->generateChipper('previous');
     }
 }
 
@@ -106,3 +103,7 @@ var_dump($c->encode('codewars')); // rovwsoiv
 var_dump($c->decode('rovwsoiv')); // codewars
 var_dump($c->encode('CODEWARS')); // codewars
 var_dump($c->decode('CODEWARS')); // codewars
+
+
+
+
