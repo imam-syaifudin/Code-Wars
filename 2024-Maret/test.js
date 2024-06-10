@@ -1,21 +1,9 @@
-function likeOrDislike(buttons) {
+const obj = [
+  { name: "Muhammad Imam", id: 1, app: true},
+  { name: "Muhammad Farhan", id: 2, app: true},
+  { name: "Muhammad Farhan", id: 2, app: true},
+]
 
-  let activeButton = "Nothing";
-  const click = (val) => {
-    activeButton === "Nothing" ? val : "Nothing"
-  }
-  
-  buttons.forEach(element => {
-    click(element)
-    console.log(activeButton);
-  });
+const isAllReviewed = obj.every(val => val.app === true)
 
-//   return activeButton;
-}
-
-// console.log(likeOrDislike(["Dislike", "Dislike"]));
-console.log(likeOrDislike(["Like", "Like", "Like"]));
-// console.log(likeOrDislike(['Like','Dislike']));
-// console.log(likeOrDislike(['Dislike','Like','Dislike']));
-// console.log(likeOrDislike(['Like','Like','Dislike','Like','Like','Like','Like','Dislike']));
-// console.log(likeOrDislike([]));
+console.log(isAllReviewed)
