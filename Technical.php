@@ -1,16 +1,5 @@
 <?php
 
-function eol($value)
-{
-    echo $value . PHP_EOL;
-}
-
-function cetak($arr)
-{
-    print_r($arr);
-}
-
-
 // A
 // $arr    = [12,9,30,"A","M",99,82,"J","N","B"];
 // $string = array_filter($arr, fn ($val) => gettype($val) === "string");
@@ -54,64 +43,77 @@ function cetak($arr)
 
 // C
 
-function grouping($string){
+// function grouping($string){
 
-    $getKeys       = [];
-    $stringSplit   = str_split(str_replace(' ','',$string));
-    $alphabet      = str_split("abcdefghijklmnopqrstuvwxyz");
-    $alphabetUpper = array_map(fn ($val) => strtoupper($val), $alphabet);
+//     $getKeys       = [];
+//     $stringSplit   = str_split(str_replace(' ','',$string));
+//     $alphabet      = str_split("abcdefghijklmnopqrstuvwxyz");
+//     $alphabetUpper = array_map(fn ($val) => strtoupper($val), $alphabet);
 
-    foreach( $stringSplit as $split ){ 
-        if( array_search($split, $getKeys) === false && $split !== " " ) {
-            $getKeys[$split] = 0;
-        }
-    }
+//     foreach( $stringSplit as $split ){ 
+//         if( array_search($split, $getKeys) === false && $split !== " " ) {
+//             $getKeys[$split] = 0;
+//         }
+//     }
     
-    foreach( $stringSplit as $split ){
-        $getKeys[$split]++;
-    }
+//     foreach( $stringSplit as $split ){
+//         $getKeys[$split]++;
+//     }
 
-    $getLetterBetween = function($from, $to , $letter) use ($alphabet, $alphabetUpper){
+//     $bubbleSort = function($array){
     
-        $result = [];
-        $slice  = array_slice(
-            $alphabet, 
-            array_search($from, $alphabetUpper), 
-            $to === null ? array_search('Z', $alphabetUpper) : array_search($to, $alphabetUpper)
-        );
+//         $originalArray = $array;
+//         $array  = array_values($array); 
+//         $keys = [];
         
-        foreach( $letter as $value ){
-            if( in_array($value, $slice) ) array_push($result, $value);
-        }
+//         foreach( $array as $value ){
+//             foreach( $array as $index => $value ){
+//                 if( isset($array[$index + 1]) ){
+//                     $curr = $array[$index];
+//                     $next = $array[$index + 1];
+//                     if( $curr > $next ){
+//                         $array[$index + 1] = $curr;
+//                         $array[$index] = $next;
+//                     }
+//                 }
+//             }
+//         }
         
-        return $result;
-    };
+//         foreach( $array as $index => $sorted ){
+//             $search = array_search($sorted, $originalArray);
+//             if( isset($keys[$index - 1]) ){
+//                 if( $keys[$index - 1] === $search ){
+//                     $keys[$index - 1] = strtoupper($search);
+//                     array_push($keys, $search);
+//                     continue;
+//                 }
+//             }
+//             array_push($keys, $search);
+//         }
+        
+//         return $keys;
+        
+//     };
 
-    $customSort = function($arr) use ($alphabet, $alphabetUpper, $getLetterBetween){
+//     $customSort = function($arr) use ($alphabet, $bubbleSort){
     
-        $arrKeys        = array_keys($arr);
-        $upperKeys      = array_filter($arrKeys, fn ($val) => in_array($val, $alphabetUpper));
-        $lowerKeys      = array_filter($arrKeys, fn ($val) => in_array($val, $alphabet));
+//         $arrKeys = array_map(function($value) use ($alphabet) {
+//             return array_search(strtolower($value), $alphabet);
+//         }, array_keys($arr));
+
+//         $setKeys     = array_combine(array_keys($arr), $arrKeys);
+//         $sortingKeys = $bubbleSort($setKeys);
+//         $result      = [];
         
-        sort($upperKeys);
-        sort($lowerKeys);
+//         foreach( $sortingKeys as $sorting ){
+//             $result[$sorting] = $arr[$sorting];
+//         }
 
-        $duplicateUpper = array_merge([], $upperKeys);
+//         return $result;
+//     };
 
-        foreach( $upperKeys as $index => $upper ){
-            $next = isset($upperKeys[$index + 1]) ? $upperKeys[$index + 1] : null;
-            array_splice(
-                $duplicateUpper, 
-                array_search($upper, $duplicateUpper) + 1, 0, 
-                $getLetterBetween($upper, $next, $lowerKeys)
-            );
-        }
-        
-        return $lowerKeys;
-    };
+//     return $customSort($getKeys);
 
-    return $customSort($getKeys);
+// }
 
-}
-
-print_r(grouping("Bismillah"));
+// print_r(grouping("CemasKauDek"));
