@@ -1,7 +1,6 @@
-const blackHole = (n,a,b) => {
-  
-  if( n === 1 ) return 1
-    
+const blackHole = (n, a, b) => {
+  if (n === 1) return 1;
+
   const matrix = [];
   const order = [];
   const startFrom = n - 1;
@@ -47,13 +46,11 @@ const blackHole = (n,a,b) => {
           }
 
           if (j === 1) {
-            let formated = index === 0 ? cycle[index] : cycle[index - 1] - 1;
             order.push(`${i + index}:${cycle[0] - index}`);
             matrix[i + index][cycle[0] - index] = "filled";
           }
 
           if (j === 2) {
-            let formated = index === 0 ? cycle[index] : cycle[index - 1] - 1;
             order.push(`${cycle[0] - index}:${cycle[0] - index - i}`);
             matrix[cycle[0] - index][cycle[0] - index - i] = "filled";
           }
@@ -75,8 +72,7 @@ const blackHole = (n,a,b) => {
     let split = val.split(":");
     matrix[`${split[0]}`][`${split[1]}`] = index + 1;
   });
-  
-  console.log(n,a,b)
+
 
   return matrix[a][b];
-}
+};
