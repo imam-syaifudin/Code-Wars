@@ -1,46 +1,62 @@
-function blowCandles(str) {
-  let move = 0;
+const blowCandles = (str) => {
+  
   let split = str.split("");
+  let move = 0;
 
-  while (split.some((val) => val !== "0")) {
-
-    let getThreeFirst = [];
-    let getThreeIndex = [];
-
+  const getNumber = () => {
+    let result    = [];
+    let indexList = [];
     let i = 0;
 
-    while (getThreeFirst.length !== 3) {
-        
-      const next = split[i + 1];
-      const prev = split[i - 1];
-      const curr = split[i];
+    while (split[i] === "0") i++;
 
-      if (curr === "0") {
-        i++;
-        continue;
-      } else {
-        getThreeFirst.push(curr);
-        getThreeIndex.push(i);
-      }
+    while (result.length !== 3) {
+      result.push(split[i]);
+      indexList.push(i);
       i++;
     }
 
-    getThreeIndex.forEach((val, index) => {
-      if ( typeof getThreeFirst[index] !== "undefined" && getThreeFirst[index] !== "0" ) {
-        split[val] = parseInt(getThreeFirst[index]) - 1;
-        split[val] = split[val].toString();
+    return { number: result.filter((val) => typeof val !== "undefined"), indexList: indexList };
+  };
+
+  while (split.some((val) => val !== "0")) {
+
+    let { number, indexList } = getNumber();
+    let i = 0;
+
+    const changeSplit = (index) => {
+      number[index] = parseInt(number[index]) - 1;
+      number[index] = number[index].toString();
+      split[indexList[index]] = number[index];
+    };
+
+    while (number.some((val) => val !== "0")) {
+      
+      const nextNumber = number[i + 1];
+      const next2Number = number[i + 2];
+
+      if (typeof nextNumber  !== "undefined" && nextNumber  !== "0") changeSplit(i + 1);
+      if (typeof next2Number !== "undefined" && next2Number !== "0") changeSplit(i + 2);
+      if (number[i] !== "0") changeSplit(i);
+
+      if (number[i] === "0" || number.every((val) => val === "0")) {
+        number    = getNumber().number;
+        indexList = getNumber().indexList;
       }
-    });
 
-    console.log(getThreeFirst)
-
-    getThreeFirst = [];
-    getThreeIndex = [];
-    // move++;
+      move++;
+    }
   }
 
   return move;
-}
+};
 
-console.log(blowCandles("1321"));
-console.log(blowCandles("2113"));
+// Basic Test
+console.log(blowCandles("1321")) // 3],
+console.log(blowCandles("0323456")); // 9],
+console.log(blowCandles("2113")) // 5],
+console.log(blowCandles("1110")) // 1],
+console.log(blowCandles("121")) // 2]
+
+// Fail Test
+console.log(blowCandles("102201")); // 2

@@ -1,0 +1,14 @@
+{
+  "name": "code-wars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "allNines.js",
+  "scripts": {
+    "test": "nodemon blackHole.js"
+  },
+  "author": "Muhammad Imam",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

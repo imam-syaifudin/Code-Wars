@@ -1,6 +1,6 @@
 <?php
 
-A
+// A
 $arr    = [12,9,30,"A","M",99,82,"J","N","B"];
 $string = array_filter($arr, fn ($val) => gettype($val) === "string");
 $number = array_filter($arr, fn ($val) => gettype($val) === "integer");
@@ -11,7 +11,7 @@ sort($number);
 $result = array_merge($string, $number);
 print_r($result);
 
-B
+// B
 
 function patternCount($text, $pattern)
 {
@@ -41,7 +41,7 @@ print_r(patternCount("ababab", "aba") . PHP_EOL);
 print_r(patternCount("aaaaaa", "aa") . PHP_EOL);
 print_r(patternCount("hell", "hello") . PHP_EOL);
 
-C
+// C
 
 function grouping($string){
 
