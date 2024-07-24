@@ -4,7 +4,7 @@
   "description": "",
   "main": "allNines.js",
   "scripts": {
-    "test": "nodemon blackHole.js"
+    "test": "nodemon texting.js"
   },
   "author": "Muhammad Imam",
   "license": "ISC",

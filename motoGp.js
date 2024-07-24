@@ -11,6 +11,7 @@ const gridPosition = (name, position) => {
         [16,17,18],
         [19,20,21],
     ];
+
     
     const positionMapping = {
         0: "top",
