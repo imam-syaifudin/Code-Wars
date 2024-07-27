@@ -12,18 +12,23 @@ const sendMessage = (message) => {
     "7" : strToArray("pqrs"),
     "8" : strToArray("tuv"),
     "9" : strToArray("wxyz"),
-    "*" :  strToArray("'-+="),
+    "*" : strToArray("'-+="),
     "0" : "space",
     "#" : "case",
   };
 
   const submitToggle = (num, time, next = null) => {
-    if ( num === "#" ) return '#';
+    
+    if ( num === "#" ) { 
+      letterCaseMode = !letterCaseMode;
+      return "";
+    }
+
     if ( num === " " || num === "-") return "";
     if ( num === "0" ) return " ";
     else {
         if( next === "-" ) return num === "-" ? "" : num;
-        return typeof toggles[num] !== 'undefined' ? toggles[num][time - 1] : num;
+        return !letterCaseMode ? toggles[num][time - 1] : toggles[num][time - 1].toUpperCase();
     }
   };
 
@@ -75,10 +80,10 @@ const sendMessage = (message) => {
   
 };
 
-// console.log(sendMessage("#2**#9999"));
-// console.log(sendMessage("4433999"));
-// console.log(sendMessage("666 6633089666084477733 33"));
-// console.log(sendMessage("1-9-8-4-"));
-console.log(sendMessage("#3#33 3330#222#666 6601-1111"));
-// console.log(sendMessage("#44#33555 5556660#9#66677755531111"));
-// console.log(sendMessage("#22#444 4084426655777703336667770222443322255444664066688 806999055282"));
+console.log(sendMessage("4433999")),
+console.log(sendMessage("666 6633089666084477733 33")),
+console.log(sendMessage("#44#33555 5556660#9#66677755531111")),
+console.log(sendMessage("#3#33 3330#222#666 6601-1111")),
+console.log(sendMessage("#2**#9999")),
+console.log(sendMessage("1-9-8-4-")),
+console.log(sendMessage("#22#444 4084426655777703336667770222443322255444664066688 806999055282"))
