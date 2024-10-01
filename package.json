@@ -4,7 +4,7 @@
   "description": "",
   "main": "allNines.js",
   "scripts": {
-    "test": "nodemon snail.js"
+    "test": "nodemon music.js"
   },
   "author": "Muhammad Imam",
   "license": "ISC",

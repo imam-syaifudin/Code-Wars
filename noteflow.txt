@@ -1,0 +1,54 @@
+Ground (G): [5, 3, 4]
+Floor 1: [6]
+Floor 2: []
+Floor 3: [4]
+Floor 4: []
+Floor 5: [6]
+Floor 6: []
+Capacity: 2
+
+- Lift mulai dari lantai G (Ground):
+
+Orang yang ingin ke lantai 5 dan lantai 3 masuk ke lift (lift penuh dengan kapasitas 2).
+Orang yang ingin ke lantai 4 harus menunggu karena lift penuh.
+Lift berhenti di G.
+Lift: [5, 3].
+
+- Lift bergerak ke lantai 1:
+
+Orang di lantai 1 yang ingin ke lantai 6 tidak bisa masuk karena lift penuh.
+Lift berhenti di lantai 1.
+Lift: [5, 3].
+
+- Lift bergerak ke lantai 2:
+
+Tidak ada orang di lantai 2.
+Lift berhenti di lantai 2.
+Lift: [5, 3].
+
+- Lift bergerak ke lantai 3:
+
+Orang yang ingin ke lantai 3 keluar.
+Orang di lantai 3 yang ingin ke lantai 4 masuk.
+Lift berhenti di lantai 3.
+Lift: [5, 4].
+
+
+- Lift bergerak ke lantai 4:
+
+Orang yang ingin ke lantai 4 keluar.
+Lift berhenti di lantai 4.
+Lift: [5].
+
+- Lift bergerak ke lantai 5:
+
+Orang yang ingin ke lantai 5 keluar.
+Orang di lantai 5 yang ingin ke lantai 6 masuk.
+Lift berhenti di lantai 5.
+Lift: [6].
+
+- Lift bergerak ke lantai 6:
+
+Orang yang ingin ke lantai 6 keluar.
+Lift berhenti di lantai 6.
+Lift kosong.
